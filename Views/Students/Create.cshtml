@@ -1,0 +1,16 @@
+﻿@model Student
+
+<div class="w-50 mx-auto shadow-sm p-5 rounded">
+    <form asp-action="Create" method="post">
+        <h2>Student Form</h2>
+        <div class="form-group">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div>
+            <label>Bio</label>
+            <input asp-for="Profile.Bio" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary my-2">Save</button>
+    </form>
+</div>
