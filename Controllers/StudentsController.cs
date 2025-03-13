@@ -66,5 +66,18 @@ namespace StudentManagementSystem.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var student = await _studentRepository.GetByIdAsync(id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            await _studentRepository.DeleteAsync(student);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

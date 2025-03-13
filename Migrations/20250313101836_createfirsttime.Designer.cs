@@ -11,7 +11,7 @@ using StudentManagementSystem.Data;
 namespace StudentManagementSystem.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250313092936_createfirsttime")]
+    [Migration("20250313101836_createfirsttime")]
     partial class createfirsttime
     {
         /// <inheritdoc />

@@ -17,6 +17,7 @@
                 <td>
                     <a asp-action="Edit" asp-route-id="@course.Id" class="btn btn-warning">Edit</a>
                     <a asp-action="Enrollments" asp-route-id="@course.Id" class="btn btn-info">Enrollments</a>
+                    <a asp-action="Delete" asp-route-id="@course.Id" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete this Course?');">Delete</a>
                 </td>
             </tr>
         }

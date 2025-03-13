@@ -87,5 +87,29 @@ namespace StudentManagementSystem.Controllers
 
             return RedirectToAction(nameof(Enrollments), new { id = enrollment.CourseId });
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var course = await _courseRepository.GetByIdAsync(id);
+            if (course == null)
+            {
+                return NotFound($"Course with {id} not found");
+            }
+
+            var enrollment = await _enrollmentRepository.GetCourseEnrollmentsAsync(id);
+
+
+            if (enrollment.Any())
+            {
+
+                throw new Exception($"Course with Id:{id} is enrolled with  one or more student. So Not possible to Delete this course at this moment.");
+            }
+            else { 
+                _courseRepository.DeleteAsync(course);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
 }
